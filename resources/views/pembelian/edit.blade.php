@@ -26,8 +26,8 @@
                 <input type="text" class="form-control" id="id_pembeli" name="id_pembeli" value="{{ $data->id_pembeli }}">
             </div>
 			<div class="mb-3">
-                <label for="id_album" class="form-label">ID Album</label>
-                <input type="text" class="form-control" id="id_album" name="id_album" value="{{ $data->id_album }}">
+                <label for="id_motor" class="form-label">ID motor</label>
+                <input type="text" class="form-control" id="id_motor" name="id_motor" value="{{ $data->id_motor }}">
             </div>
             <div class="mb-3">
                 <label for="jumlah_pembelian" class="form-label">Jumlah Pembelian</label>

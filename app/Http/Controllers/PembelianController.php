@@ -14,13 +14,13 @@ class PembelianController extends Controller
 
             $search = $request->search;
 
-            $datas = DB::select("SELECT pembelian.id_pembeli, pembelian.id_album, pembelian.jumlah_pembelian, pembelian.total_harga, 
+            $datas = DB::select("SELECT pembelian.id_pembeli, pembelian.id_motor, pembelian.jumlah_pembelian, pembelian.total_harga, 
             pembeli.id_pembeli, pembeli.nama_pembeli, 
-            album.id_album, album.nama_album 
+            motor.id_motor, motor.nama_motor 
             FROM pembelian LEFT JOIN pembeli 
             ON pembelian.id_pembeli = pembeli.id_pembeli 
-            LEFT JOIN album 
-            ON album.id_album = pembelian.id_album
+            LEFT JOIN motor 
+            ON motor.id_motor = pembelian.id_motor
             WHERE pembeli.nama_pembeli LIKE :search",
             
             [
@@ -32,13 +32,13 @@ class PembelianController extends Controller
             return view('pembelian.index', ['datas'=> $datas]);
         }
        else{
-             $datas = DB::select('SELECT pembelian.id_pembeli, pembelian.id_album, pembelian.jumlah_pembelian, pembelian.total_harga, 
+             $datas = DB::select('SELECT pembelian.id_pembeli, pembelian.id_motor, pembelian.jumlah_pembelian, pembelian.total_harga, 
             pembeli.id_pembeli, pembeli.nama_pembeli, 
-            album.id_album, album.nama_album 
+            motor.id_motor, motor.nama_motor 
             FROM pembelian LEFT JOIN pembeli 
             ON pembelian.id_pembeli = pembeli.id_pembeli 
-            LEFT JOIN album 
-            ON album.id_album = pembelian.id_album');
+            LEFT JOIN motor 
+            ON motor.id_motor = pembelian.id_motor');
 
             return view('pembelian.index')
             ->with('datas', $datas);
@@ -53,17 +53,17 @@ class PembelianController extends Controller
         $request->validate([
 
             'id_pembeli' => 'required',
-            'id_album' => 'required',
+            'id_motor' => 'required',
             'jumlah_pembelian' => 'required',
             'total_harga' => 'required',
         ]);
 
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO pembelian(id_pembeli, id_album, jumlah_pembelian, total_harga) 
-        VALUES (:id_pembeli, :id_album, :jumlah_pembelian, :total_harga)',
+        DB::insert('INSERT INTO pembelian(id_pembeli, id_motor, jumlah_pembelian, total_harga) 
+        VALUES (:id_pembeli, :id_motor, :jumlah_pembelian, :total_harga)',
         [
             'id_pembeli' => $request->id_pembeli,
-            'id_album' => $request->id_album,
+            'id_motor' => $request->id_motor,
             'jumlah_pembelian' => $request->jumlah_pembelian,
             'total_harga' => $request->total_harga,
         ]
@@ -89,17 +89,17 @@ class PembelianController extends Controller
     public function update($id, Request $request) {
         $request->validate([
             'id_pembeli' => 'required',
-            'id_album' => 'required',
+            'id_motor' => 'required',
             'jumlah_pembelian' => 'required',
             'total_harga' => 'required',
         ]);
 
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::update('UPDATE pembelian SET id_pembeli = :id_pembeli, id_album = :id_album, jumlah_pembelian = :jumlah_pembelian, total_harga = :total_harga WHERE id_pembeli = :id',
+        DB::update('UPDATE pembelian SET id_pembeli = :id_pembeli, id_motor = :id_motor, jumlah_pembelian = :jumlah_pembelian, total_harga = :total_harga WHERE id_pembeli = :id',
         [
             'id' => $id,
             'id_pembeli' => $request->id_pembeli,
-            'id_album' => $request->id_album,
+            'id_motor' => $request->id_motor,
             'jumlah_pembelian' => $request->jumlah_pembelian,
             'total_harga' => $request->total_harga,
         ]

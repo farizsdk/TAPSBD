@@ -15,20 +15,20 @@
 <table class="table table-hover mt-3">
     <thead>
       <tr>
-        <th>No.</th>
-        <th>Nama</th>
-        <th>Username</th>
-        <th>Password</th>
+        <th><center>No.</center></th>
+        <th><center>Nama</center></th>
+        <th><center>Username</center></th>
+        <th><center>Password</center></th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
         @foreach ($datas as $data)
             <tr>
-                <td>{{ $data->id_pembeli }}</td>
-                <td>{{ $data->nama_pembeli }}</td>
-                <td>{{ $data->username_pembeli }}</td>
-                <td>{{ $data->pass_pembeli }}</td>
+                <td><center>{{ $data->id_pembeli }}</center></td>
+                <td><center>{{ $data->nama_pembeli }}</center></td>
+                <td><center>{{ $data->username_pembeli }}</center></td>
+                <td><center>{{ $data->pass_pembeli }}</center></td>
                 <td>
                     <a href="{{ route('pembeli.edit', $data->id_pembeli) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
 

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\PembeliController;
-use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\motorController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LoginController::class, 'ShowLoginForm'])->name('login.index');
 Route::get('/pembeli', [PembeliController::class, 'index'])->name('pembeli.index');
-Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
+Route::get('/motor', [motorController::class, 'index'])->name('motor.index');
 Route::get('/pembelian', [PembelianController::class, 'index'])->name('pembelian.index');
 
 Route::prefix('pembeli')->group(function(){
@@ -38,13 +38,13 @@ Route::prefix('pembeli')->group(function(){
 }); 
 
 
-Route::prefix('album')->group(function(){
-    Route::get('add', [AlbumController::class, 'create'])->name('album.create');
-    Route::post('store', [AlbumController::class, 'store'])->name('album.store');
-    Route::get('edit/{id}', [AlbumController::class, 'edit'])->name('album.edit');
-    Route::post('update/{id}', [AlbumController::class, 'update'])->name('album.update');
-    Route::post('delete/{id}', [AlbumController::class, 'delete'])->name('album.delete');
-    Route::post('softdelete/{id}', [AlbumController::class, 'softdelete'])->name('album.softdelete');
+Route::prefix('motor')->group(function(){
+    Route::get('add', [motorController::class, 'create'])->name('motor.create');
+    Route::post('store', [motorController::class, 'store'])->name('motor.store');
+    Route::get('edit/{id}', [motorController::class, 'edit'])->name('motor.edit');
+    Route::post('update/{id}', [motorController::class, 'update'])->name('motor.update');
+    Route::post('delete/{id}', [motorController::class, 'delete'])->name('motor.delete');
+    Route::post('softdelete/{id}', [motorController::class, 'softdelete'])->name('motor.softdelete');
 });
 
 Route::prefix('pembelian')->group(function(){

@@ -15,20 +15,20 @@
 <table class="table table-hover mt-3">
     <thead>
       <tr>
-        <th>Nama Pembeli</th>
-        <th>Nama Album</th>
-        <th>Jumlah Pembelian</th>
-        <th>Total Harga</th>
+        <th><center>Nama Pembeli</center></th>
+        <th><center>Nama motor</center></th>
+        <th><center>Jumlah Pembelian</center></th>
+        <th><center>Total Harga</center></th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
         @foreach ($datas as $data)
             <tr>
-                <td>{{ $data->nama_pembeli }}</td>
-                <td>{{ $data->nama_album }}</td>
-                <td>{{ $data->jumlah_pembelian }}</td>
-                <td>{{ $data->total_harga }}</td>
+                <td><center>{{ $data->nama_pembeli }}</center></td>
+                <td><center>{{ $data->nama_motor }}</center></td>
+                <td><center>{{ $data->jumlah_pembelian }}</center></td>
+                <td><center>{{ $data->total_harga }}</center></td>
                 <td>
                     <a href="{{ route('pembelian.edit', $data->id_pembeli) }}" type="button" class="btn btn-warning rounded-3">Ubah</a>
 
